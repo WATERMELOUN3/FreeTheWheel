@@ -1,6 +1,8 @@
 Free The Wheel for OS X
 ============
 
+I slightly modified it to run on my M1 Macbook pro, it's pure disgusting bruteforce but it works...  
+
 Logitech driving wheel enabler based on [Feral Interactive's FreeTheWheel](http://support.feralinteractive.com/en/faqs/free_the_wheel/)
 
 ## OS X Catalina
