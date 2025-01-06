@@ -282,12 +282,14 @@ bool ConfigLogitechWheels(IOHIDDeviceRef hidDevice, DeviceID deviceID, bool nati
             usleep(DELAY_BETWEEN_COMMANDS);
 			CCommands commands;
 			GetCmdLogitechWheelRange(&commands, targetDeviceID, kGPLogitechWheelRangeMax);
-			SendCommands(hidDevice, &commands);
+			if (SendCommands(hidDevice, &commands) != kIOReturnSuccess)
+				return false;
 			printf("Calibrated full wheel range. (VendorID/DeviceID %x)\n", deviceID);
 			
             usleep(DELAY_BETWEEN_COMMANDS);
 			GetCmdLogitechWheelNative(&commands, targetDeviceID);
-			SendCommands(hidDevice, &commands);
+			if (SendCommands(hidDevice, &commands) != kIOReturnSuccess)
+				return false;
 			printf("Enabled native mode. (VendorID/DeviceID %x)\n", deviceID);
 			
                      
